@@ -132,7 +132,7 @@ public class TopBottomAnimation: NSObject, Animator {
         // enough to allow for greater bounce induced by a quick panning motion.
         let initialSpringVelocity = animationDistance == 0.0 ? 0.0 : min(0.0, closeSpeed / animationDistance)
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: initialSpringVelocity, options: [.beginFromCurrentState, .curveLinear, .allowUserInteraction], animations: {
-            self.translationConstraint.constant = -self.bounceOffset
+            self.translationConstraint.constant = 0.0
             container.layoutIfNeeded()
         }, completion: { completed in
             // Fix #131 by always completing if application isn't active.
